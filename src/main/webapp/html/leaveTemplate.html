@@ -1,0 +1,267 @@
+<div class="row">
+	<div class="col-sm-1 text-left  hidden-sm "></div>
+	<div class="col-sm-2 text-left monttite">
+		<h2 class="text-center calendertitle">{{ scope.calendarTitle }}</h2>
+	</div>
+    <div class="col-sm-4 col-md-3 text-left nxtPreBtns">  
+      <div class="btn-group" ng-click="toggleYear(scope.viewDate)">
+        <button class="btn {{btnTheme}}" mwl-date-modifier date="scope.viewDate" decrement="scope.calendarView">
+          Previous
+        </button>
+        <button class="btn {{btnTheme}}" mwl-date-modifier date="scope.viewDate" set-to-today>
+          Today
+        </button>
+        <button class="btn {{btnTheme}}" mwl-date-modifier date="scope.viewDate" increment="scope.calendarView">
+          Next
+        </button>
+      </div>
+    </div>
+  	<br class="visible-xs marggap">
+    <div class="col-sm-3 text-left yearbtns">
+      <div class="btn-group">
+        <label class="btn {{btnTheme}}" ng-model="scope.calendarView" uib-btn-radio="'year'">Year</label>
+        <label class="btn {{btnTheme}} active" ng-model="scope.calendarView" uib-btn-radio="'month'">Month</label>
+        <!-- <label class="btn btn-primary" ng-model="scope.calendarView" uib-btn-radio="'week'">Week</label>
+        <label class="btn btn-primary" ng-model="scope.calendarView" uib-btn-radio="'day'">Day</label> -->
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-3 text-left usersviewbtns">
+	    <div class="btn-group" data-toggle="buttons">
+		    <label class="btn {{btnTheme}} active" ng-model="scope.checkLeaves" ng-click="toggleLeave('all')" uib-btn-radio="'all'">All</label>
+        	<label class="btn {{btnTheme}}" ng-model="scope.checkLeaves" ng-click="toggleLeave('mine')" uib-btn-radio="'mine'">Mine</label>
+		</div>
+	</div>
+</div>
+<br>
+<mwl-calendar 
+	events="scope.events" 
+	view="scope.calendarView"
+    view-title="scope.calendarTitle"
+    view-date="scope.viewDate"
+    on-event-click="scope.eventClicked(calendarCell)"
+    on-timespan-click="scope.timeSpanClicked(calendarCell, calendarEvent)"
+    cell-is-open="scope.isCellOpen"
+    cell-modifier="scope.modifyCell(calendarCell)"
+    on-view-change-click="scope.viewChangeClicked(calendarDate, calendarNextView)"
+    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd">
+</mwl-calendar>
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="leaveModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+		    <form class="form-horizontal" novalidate>
+				<div class="modal-header">
+	  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	  				<h4 class="modal-title">Apply {{title}}</h4>
+				</div>
+				<div class="modal-body">
+					<div class = "alert alert-info" ng-show="msg">
+				  	  {{msg}}
+				    </div>
+				    <div class="row">
+			   	  	  <div class="col-sm-12 col-md-12">
+			   	  	  	<div class="form-group">
+				      	    <div class="col-md-1"></div>
+				    	 	<div class="col-md-8">
+				    	 		<div class="help-block">
+							    </div>
+				    	 	</div>
+				    	 	<div class="col-md-1"></div>
+				    	</div>
+			   	  	  </div>
+			   	  	</div>
+			   	    <div class="row">
+			   	  	  <div class="col-sm-12 col-md-12">
+				         <div class="form-group">
+					         <label class="col-md-2 control-label required">Subject:</label>
+				             <div class="col-md-10">
+				               <input type="text" name="Title" class="form-control" required validType="all-chars" ng-minlength="3"
+                				ng-maxlength="100" autofocus ng-model="data.title" value="{{data.title}}"/>
+				             </div>
+				         </div>
+				       </div>
+			         </div>
+			         <div class="row">
+				       <div class="col-sm-6 col-lg-6">
+				         <div class="form-group">
+					        <label class="col-md-4 control-label required">Employee :</label>
+							<div class="col-md-8">
+								<ol class="form-control nya-bs-select" name="Employee" title="Select" data-live-search="true" required validType="select" 
+									ng-model="data.employeeId" ng-selected="{{data.employeeId}}">
+								  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+								    <a>
+								      {{employee.firstName + " " + employee.lastName}}
+								      <span class="glyphicon glyphicon-ok check-mark"></span>
+								    </a>
+								  </li>
+								</ol>
+							</div>
+				         </div>
+				      </div>
+				      <div class="col-sm-6 col-lg-6">
+				         <div class="form-group">
+					         <label class="col-md-4 control-label required">Leave Type:</label>
+					         <div class="col-md-8">
+						         <ol class="nya-bs-select form-control" ng-class="{disabled: !isPto}" ng-disabled="!isPto" name="Leave Type" title="Select" required validType="select" 
+						        	actions-box="true" ng-model="data.requestType" ng-selected="{{data.requestType}}">
+								  <li class="nya-bs-option" ng-show="!isPto" data-value="WFH">
+								    <a>WFH</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="PTO">
+								    <a>PTO</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="UNPLANNED_PTO">
+								    <a>UNPLANNED PTO</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="PERSONAL_LEAVE">
+								    <a>PERSONAL LEAVE</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="LOP">
+								    <a>LOP</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="MATERNITY_PAID_LEAVE">
+								    <a>MATERNITY PAID LEAVE</a>
+								  </li>
+								  <li class="nya-bs-option" ng-show="isPto" data-value="MATERNITY_UNPAID_LEAVE">
+								    <a>MATERNITY UNPAID LEAVE</a>
+								  </li>
+								 </ol>
+					         </div>
+				         </div>
+				      </div>
+				    </div>
+				    <div class="row">
+				      <div class="col-sm-6 col-lg-6">
+				         <div class="date form-group">
+					         <label class="col-md-4 control-label required">Starts at:</label>
+					         <div class="col-md-8">
+				               <p class="input-group">
+				               	  <span class="input-group-addon input-group-time">
+				               	  	<select ng-change="onDtChange()" ng-model="data.dtFromHalf" required ng-selected="{{data.dtFromHalf}}">
+							        	<option value="FIRST">9:00 A.M</option>
+							        	<option value="SECOND">1:30 P.M</option>
+							        </select>
+				               	  </span>
+						          <input type="text" class="form-control required leaveDate" name="Starts at" readonly ng-change="onDtChange()" uib-datepicker-popup="dd-MMM-yyyy hh:mm a"
+						             id="startDt" ng-model="data.startsAt" value="{{data.startsAt}}" validType="date-time" required is-open="scope.startOpen" close-text="Close">
+						          <span class="input-group-btn">
+						            <button type="button" class="btn btn-default" ng-click="scope.toggle($event, 'startOpen', scope)">
+						              <i class="glyphicon glyphicon-calendar"></i>
+						            </button>
+						          </span>
+						        </p>
+				             </div>
+				         </div>
+					  </div>
+					  <div class="col-sm-6 col-lg-6">
+				         <div class="dateend form-group">
+					         <label class="col-md-4 control-label required">Ends at:</label>
+				             <div class="col-md-8">
+				               <p class="input-group">
+				               	  <span class="input-group-addon input-group-time">
+				               	  	<select ng-change="onDtChange()" required ng-model="data.dtEndHalf" ng-selected="{{data.dtEndHalf}}">
+							        	<option value="FIRST">1:30 P.M</option>
+							        	<option value="SECOND">5:30 P.M</option>
+						          	</select>
+				               	  </span>
+						          <input type="text" class="form-control required leaveDate" name="Ends at" required readonly ng-change="onDtChange()" uib-datepicker-popup="dd-MMM-yyyy hh:mm a" 
+						          	id="endDt" ng-model="data.endsAt" value="{{data.endsAt}}" validType="date-time" is-open="scope.endOpen" close-text="Close" >
+						          <span class="input-group-btn">
+						            <button type="button" class="btn btn-default" ng-click="scope.toggle($event, 'endOpen', scope)">
+						              <i class="glyphicon glyphicon-calendar"></i>
+						            </button>
+						          </span>
+						        </p>
+				             </div>
+				         </div>
+					  </div>
+				   </div>
+				   <div class="row">
+				      <div class="col-sm-12 col-lg-12">
+				         <div class="form-group">
+					         <label class="col-md-2 control-label required">Comment:</label>
+					         <div class="col-md-10">
+					         	<textarea class="form-control" required name="Comment" validType="all-chars" ng-minlength="3"	ng-maxlength="100" ng-model="data.comments" value="{{data.comments}}" rows="4" cols="45" id="comment"></textarea>
+					         </div>
+				         </div>
+				       </div>
+				    </div>
+				   <div class="row">
+				      <div class="col-sm-12 col-lg-12">
+				         <div class="form-group">
+					         <label class="col-md-2 control-label required">Notify:</label>
+					         <div class="col-md-10">
+								 <ui-select multiple required validType="select" ng-model="data.notificationToList" sortable="true" close-on-select="false">
+								    <ui-select-match placeholder="Select...">{{$item.email}}</ui-select-match>
+								    <ui-select-choices repeat="employee in employees | propsFilter: {firstName: $select.search, lastName: $select.search}">
+								      <div ng-bind-html="employee.firstName | highlight: $select.search"></div>
+								      <small>
+								        email: {{employee.email}}
+								      </small>
+								    </ui-select-choices>
+								  </ui-select>
+								 <!-- <ol class="form-control nya-bs-select" name="Notify" data-live-search="true" required validType="select" 
+									multiple ng-model="data.notificationToList" ng-selected="{{data.notificationToList}}">
+								  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk" title="{{employee.email}}">
+								    <a>
+								      {{employee.firstName + " " + employee.lastName}}
+								      <span class="glyphicon glyphicon-ok check-mark"></span>
+								    </a>
+								  </li>
+							 	</ol> -->
+					         </div>
+				         </div>
+				      </div>
+				   </div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+				  <button type="submit" class="btn btn-save" ng-show="!data.pk" action="saveLeave">Save</button>
+				  <button type="submit" class="btn btn-update" ng-show="data.pk" action="updateLeave">Update</button>
+				  <button type="button" class="btn btn-delete" ng-show="data.pk" data-toggle="modal" data-target="#deleteLeave">Delete</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="leaveList" role="dialog">
+	<div class="modal-dialog modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+  				<h4 class="modal-title">{{title}} List</h4>
+			</div>
+			<div class="modal-body">
+				<table datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="$parent.dtInstance" class="row-border hover"></table>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div>
+	<!-- Modal -->
+	<div class="modal fade" id="deleteLeave" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Delete {{title}}</h4>
+				</div>
+				<div class="modal-body">
+					Are you sure you want to delete - <b>{{data.title}}</b>?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+					<button type="button" class="btn btn-danger" ng-click="deleteLeave()">Yes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

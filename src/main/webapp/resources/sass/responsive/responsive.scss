@@ -1,0 +1,199 @@
+
+/*-------------------------RESPONSIVE STYLE SHEET-----------------*/
+
+@media screen and (max-width: 1024px) {
+
+   .dt-buttons{display:none} 
+   .calendertitle{font-size:14px;} 
+   .row{ margin:0 -15px; }
+    html.mm-opening .mm-slideout {
+    transform: translate(250px, 0px);
+    }
+
+
+  .wfhfilter{
+     margin-bottom: 10px;
+
+   .control-label{  width:100%}
+   .form-control{   margin:0;  }
+   .input-holder{width:100%}
+   .form-group{width:100%}
+   .input-group{   width:100%; }
+   .input-holder-sm{width:100%}
+  }
+
+  .form-inline .wfhfilter .input-group-btn{width:1%}
+
+ /* .perfhr-widget-content{ 
+    .control-label{
+      width:100%
+    }
+   } */
+
+}
+
+
+
+/*-Tablet portal view-*/
+
+@media screen and (max-width: 767px) {
+
+
+ 
+ .calendertitle{font-size:14px;} 
+ .nxtPreBtns{float:right; margin-bottom:10px;}
+ .yearbtns{float:left}
+ .usersviewbtns{float:right}
+ .header{padding: 6px 10px 6px 30px;}
+ .marggap{
+    display: inline-block;
+    margin: 7px 0;
+    width: 100%;
+  }
+
+ .calender-holder{padding:0}
+
+ .divContainer {
+    margin: 75px 0 0;
+    padding: 0;
+   }
+
+  .mm-opened .header{
+    margin: 0 -20px;
+  }
+
+  .cal-context .row{margin:0;}
+  .cal-year-box [class*="span"]{
+  padding: 0 5px;
+  }
+
+  .modal.fade.in {
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .modal-dialog{width:90%;  margin: 10px auto;}
+
+
+  .feature, .feature-2 {
+    padding-bottom: 20px;
+   }
+}
+
+
+
+/*-Iphone 5s portal view-*/
+
+@media screen and (max-width: 480px) {
+
+body {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.cal-row-fluid [class*="cal-cell"]{
+  font-size:8px;
+}
+
+.cal-month-box .cal-day-today span[data-cal-date] {
+    font-size: 10px;
+}
+
+
+calendertitle {
+    font-size: 11px;
+}
+  
+  .calendercontainer .btn-group{
+   .btn{ 
+       padding: 3px 7px;
+        font-size: 8px;
+    }
+  }
+
+  .mobilhide{
+    display:none;
+  }
+
+  .cal-row-head{
+    [class*="cal-cell"]:first-child , [class*="cal-cell"]{
+     padding: 0 4px 0 5px;
+    }
+
+  }
+  .fullname {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 54px;
+ }
+
+ .header{
+    h1{
+      max-width: 140px;
+
+      > a{width:100%;}
+      img{width:100%;}
+    }
+  }
+
+.cal-year-box span[data-cal-date] {
+    font-size: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 33px;
+}
+
+
+
+
+   div.dt-buttons{
+   width:100%;
+   text-align:center;
+   }
+
+   .dataTables_wrapper{
+    .dataTables_paginate{
+      width:100%;
+      text-align:center;
+      }
+    }
+
+    .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+
+        > label{
+            width:100%;
+            text-align:center;
+
+            .form-control{
+            display:inline-block;
+            float:none;
+            }
+         }
+      }
+
+}
+
+
+/*- 375px view-*/
+
+@media screen and (max-width: 375px) {
+
+
+
+  .panel-body {
+    padding: 10px;
+  }
+
+ 
+
+  .panel-success.perfhr-panel > .panel-heading{
+  padding: 11px 9px;
+  }
+
+}

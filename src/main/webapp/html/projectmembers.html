@@ -1,0 +1,75 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="projectMembersForm" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk">Save Project Member</h4>
+					<h4 class="modal-title" ng-show="data.pk">Update Project Member</h4>
+				</div>
+			    <div class="modal-body">
+				   	 <div class="row">
+					      <div class="col-md-11">
+							<div class="form-group">
+								<label class="col-md-4 control-label required" for="name">Project Name :</label>
+								<div class="col-md-8 splinnputs col-xs-12">
+									<ol class="form-control nya-bs-select" name="Project Name" title="Select" data-live-search="true" validType="select" required ng-model="data.projectId" ng-selected="{{data.projectId}}">
+									  <li nya-bs-option="project in projects">
+									    <a>
+									      {{project.projectName}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label required">Members :</label>
+								<div class="col-md-8 splinnputs  col-xs-12">
+									<ol class="form-control nya-bs-select" name="Member" title="Select" data-live-search="true" required validType="select" ng-model="data.employeeId" ng-selected="{{data.employeeId}}">
+									  <li nya-bs-option="employee in employees track by employee.pk">
+									    <a>
+									      {{employee.firstName + " " + employee.lastName}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+							</div>
+							<div class="form-group date">
+								<label class="col-md-4 control-label required" for="startDate">Member Start Date :</label>
+								<p class="input-group splinnputs col-md-8  col-xs-12">
+						          <input type="text" name="Member Start Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.dtStarted}} ng-model="data.dtStarted" is-open="pmStDate.opened" 
+						          		id="startDt" datepicker-options="dateOptions" required validType="date" ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+						          <span class="input-group-btn">
+						            <button type="button" class="btn btn-default" ng-click="pmStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          </span>
+						          
+						        </p>
+							</div>
+							<div class="form-group date">
+								<label class="col-md-4 control-label required">Member End Date :</label>
+				                <p class="input-group splinnputs  col-md-8  col-xs-12">
+						          <input type="text" name="Member End Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.dtEnded}} ng-model="data.dtEnded" is-open="pmEndDate.opened" 
+						          		id="endDt" datepicker-options="dateOptions" required validType="date" ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+						          <span class="input-group-btn">
+						            <button type="button" class="btn btn-default" ng-click="pmEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          </span>
+						        </p>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

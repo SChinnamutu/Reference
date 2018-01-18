@@ -1,0 +1,79 @@
+<div class="perfhr-widget" style="height: 500px;overflow: auto;">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Employee Roles Management</h3>
+	</div>
+	<div class="perfhr-widget-content">
+		<form class="form-vertical" novalidate>
+			<div class="row">
+				<div class="form-group col-md-8">
+			   	 	<div class="col-md-8">
+			   	 		<div class="help-block">
+					    </div>
+			   	 	</div>
+		   	 	</div>
+			</div>
+			<div class="row">
+			    <div class="col-md-12">
+			      	<div class="perfhr-filter row">
+			      		<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+							    <label class="control-label required">Roles:</label>
+							    <div class="col-md-8 input-group splinnputs  col-xs-12">
+									<!-- <select name="Role" ng-change="onRoleChange()" class="form-control" required validType="select" ng-model="data.role"
+										ng-options='(role.roleName) for role in roles | orderBy: "roleName" track by role.pk'>
+									</select> -->
+									<ol class="nya-bs-select form-control" name="Role" data-live-search="true" ng-change="onRoleChange()" title="Select" required validType="select"  
+							        	ng-model="data.role" ng-selected="{{data.role}}">
+									  <li nya-bs-option="role in roles track by role.pk">
+									    <a>
+									      {{role.roleName}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5 col-sm-4">
+						    <div class="form-group">
+						    	<label class="control-label required">Employee:</label>
+						    	<div class="col-md-8 col-xs-12">
+									<!-- <multiselect class="input-xlarge" name="Employee" required multiple="true"
+								        ng-model="data.employee"
+	       								options="(c.firstName+ ' ' + c.lastName) for c in employeeList"
+								        change="selected()"></multiselect> -->
+							        <ol class="nya-bs-select form-control" name="Employee" title="Select" data-live-search="true" multiple required validType="select" 
+							        	data-selected-text-format="count" actions-box="true" ng-model="data.employee" ng-selected="{{data.employee}}">
+									  <li nya-bs-option="employee in employeeList track by employee.pk">
+									    <a>
+									      {{employee.firstName + ", " + employee.lastName}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+						    </div>
+					    </div>
+					    <div class="col-md-1 col-sm-12">
+						    <div class="form-group">
+						    	<div> 
+						    		<button type="submit" class="btn btn-success" action="manageRoles">Apply Role</button>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+			    </div>
+			</div>
+			<div class="container components">
+			    <div class="[ col-xs-12 col-sm-6 ]">
+			        <div class="[ form-group ]">
+			        	<ul id="componentsList" class="well">
+			            </ul>
+			        </div>
+				</div>
+			</div>
+		</form>
+	   <!--  <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" 
+	    	dt-instance="dtInstance"  width="100%" class="table perfhr-table"></table> -->
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="perfhr-filter form-inline wfhfilter">
+	<div class="row">
+		<div class="form-group col-md-8">
+	   	 	<div class="col-md-8">
+	   	 		<div class="help-block">
+			    </div>
+	   	 	</div>
+   	 	</div>
+  	 </div>
+  	 <div class="row">
+  	 	<!-- <form role="form" ng-init="form={}; data={}" class="form-inline" novalidate> -->
+			<div class="col-sm-6 col-md-3  col-xs-12">
+		      <div class="form-group date">
+		         <label class="control-label required">From Date:</label>
+		         <div class="input-holder">
+		          <p class="input-group">
+			         <input type="text" name="From Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.startDate}} ng-model="data.startsAt" is-open="stDate.opened" 
+		          		id="startDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+			          <span class="input-group-btn">
+			            <button type="button" class="btn btn-default" ng-click="reportStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+			          </span>
+			       </p>
+		   		 </div> 
+		      </div>
+			</div>
+			<div  class="col-sm-6 col-md-3 col-xs-12">
+		      <div class="form-group">
+		         <label class="control-label required">To Date:</label>
+		         <div class="input-holder">
+		             <p class="input-group">
+			          	<input type="text" name="To Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.endDate}} ng-model="data.endsAt" is-open="endDate.opened" 
+			          		id="endDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+			          	<span class="input-group-btn">
+			            	<button type="button" class="btn btn-default" ng-click="reportEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+			          	</span>
+			          </p>
+			   	 </div>
+		      </div>
+		    </div>
+		    <div class="col-sm-6 col-md-3 col-xs-12">
+		       <label class="control-label required">Employee :</label>
+	           <div class="input-holder col-md-8">
+				<ol class="form-control nya-bs-select" name="Employee" title="Select" data-live-search="true" required validType="select" 
+					multiple actions-box="true" ng-model="data.employeeReportList" ng-selected="{{data.employeeReportList}}">
+				  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+				    <a>
+				      {{employee.firstName + " " + employee.lastName}}
+				      <span class="glyphicon glyphicon-ok check-mark"></span>
+				    </a>
+				  </li>
+				</ol>
+	         </div>
+		   </div>
+		   <div class="col-sm-6 col-md-2  col-xs-12">
+	         <label class="control-label required">Leave Type:</label>
+	         <div class="input-holder-sm">
+	            <!-- <select class="form-control" name="Leave Type" required validType="select" ng-disabled="!isPto" ng-model="data.requestType">
+	            	<option value="ALL_PTO">All</option>
+				 	<option value="WFH" ng-selected="!isPto" ng-show="!isPto">WFH</option>
+		        	<option value="PTO">PTO</option>
+		        	<option value="Unplanned_PTO">Unplanned PTO</option>
+		         </select> -->
+		         <ol class="nya-bs-select form-control" ng-class="{disabled: !isPto}" ng-disabled="!isPto" name="Leave Type" title="Select" required validType="select" 
+		        	data-live-search="true" ng-model="data.requestType" ng-selected="{{data.requestType}}">
+				  <li class="nya-bs-option" ng-show="!isPto" data-value="WFH">
+				    <a>WFH</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="ALL_PTO">
+				    <a>All</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="PTO">
+				    <a>PTO</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="UNPLANNED_PTO">
+				    <a>UNPLANNED PTO</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="PERSONAL_LEAVE">
+				    <a>PERSONAL LEAVE</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="LOP">
+				    <a>LOP</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="MATERNITY_PAID_LEAVE">
+				    <a>MATERNITY PAID LEAVE</a>
+				  </li>
+				  <li class="nya-bs-option" ng-show="isPto" data-value="MATERNITY_UNPAID_LEAVE">
+				    <a>MATERNITY UNPAID LEAVE</a>
+				  </li>
+				 </ol>
+		      </div>
+		   </div>
+		   <div class="col-sm-1 col-xs-12">
+		        <button type="submit" class="btn btn-success" action="searchLeave">Search</button>
+		   </div>
+	   <!-- </form> -->
+   </div>
+</div>
+<div ng-controller="leaveReportControllerTable as leaveTable" id="leaveReportTable">
+	<table datatable="" dt-options="leaveTable.dtOptions" dt-columns="leaveTable.dtColumns" dt-instance="leaveTable.dtInstance" class="table perfhr-table rowClick"></table>
+</div>
+<div class="modal fade bs-example-modal-lg" id="leaveTableList" role="dialog">
+	<div class="modal-dialog modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+  				<h4 class="modal-title">{{title}} List</h4>
+			</div>
+			<div ng-controller="leaveSplitUpControllerTable as leaveTable">
+				<table id="consolidatedReport" datatable="" dt-options="leaveTable.dtOptions" dt-columns="leaveTable.dtColumns" dt-instance="leaveTable.dtInstance" class="table perfhr-table"></table>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

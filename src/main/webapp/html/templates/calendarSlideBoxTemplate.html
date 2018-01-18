@@ -1,0 +1,48 @@
+<div class="modal fade bs-example-modal-lg ptoList" role="dialog"  mwl-collapse-fallback="vm.isCollapsed">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal" ng-click="">&times;</button>
+  				<h4 class="modal-title">PTO List</h4>
+			</div>
+			<div class="modal-body">
+			    <ul class="unstyled list-unstyled">
+			      <li
+			        ng-repeat="event in vm.events | orderBy:'title' track by event.$id"
+			        ng-class="event.cssClass"
+			        mwl-draggable="event.draggable === true"
+			        drop-data="{event: event}">
+			        <!-- <span class="pull-left event" ng-class="'event-' + event.type"></span>
+			        &nbsp; -->
+			        <a
+			          href="javascript:;"
+			          class="event-item"
+			          ng-click="vm.onEventClick({calendarEvent: event})">
+			          <span ng-bind-html="vm.$sce.trustAsHtml(event.title)"></span>
+			          (<span ng-bind="event.startsAt | calendarDate:event.startsAt:true"></span> - 
+			          <span ng-bind="event.endsAt | calendarDate:event.endsAt:true"></span>)
+			        </a>
+			        <a
+			          href="javascript:;"
+			          class="event-item-edit"
+			          ng-if="vm.editEventHtml && event.editable !== false"
+			          ng-bind-html="vm.$sce.trustAsHtml(vm.editEventHtml)"
+			          ng-click="vm.onEditEventClick({calendarEvent: event})">
+			        </a>
+			        <a
+			          href="javascript:;"
+			          class="event-item-delete"
+			          ng-if="vm.deleteEventHtml && event.deletable !== false"
+			          ng-bind-html="vm.$sce.trustAsHtml(vm.deleteEventHtml)"
+			          ng-click="vm.onDeleteEventClick({calendarEvent: event})">
+			        </a>
+			      </li>
+			    </ul>
+		    </div>
+		    <div class="modal-footer">
+		    	<button type="button" class="btn btn-danger ptoClose" parentId="leave_{{vm.events[0].pk}}" data-dismiss="modal">Close</button>
+			</div>
+  	   </div>
+    </div>
+</div>

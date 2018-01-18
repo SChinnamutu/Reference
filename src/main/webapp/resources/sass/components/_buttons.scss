@@ -1,0 +1,63 @@
+/*-----------------BUTTON COMPONENT---------------------*/
+.btn-edit {
+	color: #fff;
+	background-color: #f7a35c;
+	padding: 8px 8px 4px 11px;
+}
+.btn-edit:hover {
+	color: #fff;
+	background-color: rgba(255, 188, 117, 1);
+}
+.btn-save {
+	background: #55C188;
+	border: 2px solid #55C188;
+	color: #fff;
+	&:hover, &:active, &:focus {
+		background: rgba(85, 193, 136, 0.72);
+		color: #fff;
+	}
+}
+.btn-close {
+	color: #000;
+	background-color: #AAB2BE;
+	border: 2px solid #AAB2BE;
+	&:hover, &:active, &:focus {
+		background: #CCD1DA;
+		border-color: #AAB2BE;
+	}
+}
+.btn {
+     background-image: none;
+	.fa {
+		font-size: 18px;
+	}
+}
+.btn-update {
+	background-color: #f7a35c;
+	border: 2px solid #eea236;
+	color: #fff;
+	&:hover, &:focus, &:active {
+		background-color: rgba(255, 188, 117, 1);
+		color: #fff;
+	}
+}
+.btn-delete {
+	background: #c9302c;
+	border: 2px solid #ac2925;
+	color: #fff;
+	&:hover, &:focus, &:active {
+		background: #d9534f;
+		border: 2px solid #d43f3a;
+		color: #fff;
+	}
+}
+button.dt-button, div.dt-button, a.dt-button {
+	background: transparent;
+	border-color: rgba(204, 204, 204, 0.19);
+	color: #FBF7F7;
+	font-size: 14px;
+}
+button.dt-button:hover:not(.disabled), div.dt-button:hover:not(.disabled), a.dt-button:hover:not(.disabled) {
+	background-color: #666;
+	background-image: none;
+}

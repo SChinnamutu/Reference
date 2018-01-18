@@ -1,0 +1,12 @@
+<div class="perfhr-widget" ng-controller="ptoReportController">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">PTO Reports</h3>
+	</div>
+	<form role="form" ng-init="form={}; data={}" class="form-inline" novalidate>
+		<div class="perfhr-widget-content">
+		    <div class="col-md-12">
+		      	<div onload="finishLoading()" data-ng-include src="'html/leaveReportTemplate.html'"></div>
+		    </div>
+	    </div>
+    </form>
+</div>

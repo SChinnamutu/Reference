@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:security="http://www.springframework.org/schema/security"
+      
+      xsi:schemaLocation="
+        http://www.springframework.org/schema/beans    
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/security 
+   		http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+        
+        
+   <bean id="configProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  	   <property name="locations">
+           <list>
+               <value>classpath:dbconfig.properties</value>
+           </list>
+       </property>
+   	   <property name="ignoreUnresolvablePlaceholders" value="true"/>
+       <property name="ignoreResourceNotFound" value="true"/>
+   </bean>
+       
+   <bean id="dataSource"
+            class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${database.driverclassname}"/>		
+		<property name="url" value="${database.jdbcurl}"/>
+		<property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>        
+        <property name="initialSize" value="${database.pool.initialsize}"/>
+        <property name="maxActive" value="${database.pool.maxactive}"/>
+        <property name="maxIdle" value="${database.pool.maxidle}"/> 
+        <property name="minIdle" value="${database.pool.minidle}"/> 
+        <property name="maxWait" value="${database.pool.timeout}"/>
+		<property name="defaultAutoCommit" value="${database.pool.autocommit}"/>    
+	    <property name="poolPreparedStatements" value="${database.pool.poolpreparedstatements}"/>
+                
+        <property name="validationQuery" value="${database.pool.validationquery}" />
+        <property name="testOnBorrow" value="${database.pool.testonborrow}" />
+        <property name="testOnReturn" value="${database.pool.testonreturn}" />
+        <property name="testWhileIdle" value="${database.pool.testwhileidle}" />
+        <property name="removeAbandoned" value="${database.pool.remove-abandoned}"/>
+        <property name="removeAbandonedTimeout" value="${database.pool.remove-abandoned-timeout}"/>        
+        <property name="timeBetweenEvictionRunsMillis" value="${database.pool.timebetween-eviction-runsmillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${database.pool.min-evictable-idle-timemillis}" />
+      </bean>
+
+      <!-- Configure Hibernate 4 Session Factory -->
+      <bean id="sessionFactory"
+            class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
+			<property name="dataSource">
+			  <ref bean="dataSource" />
+			</property>
+
+			<property name="hibernateProperties">
+			  <props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+					<prop key="hibernate.show_sql">true</prop>
+			  </props>
+			</property>
+			<property name="packagesToScan" value="com.perficient.hr.model" />
+      </bean>
+  </beans>      

@@ -1,0 +1,13 @@
+<div class="panel panel-success perfhr-panel" ng-controller="wfhController as scope">
+	<div class="panel-heading">
+		<h1 class="section-title"><span class="mobilhide">WFH Calendar</span></h1>
+		<ul class="rightsided-element">
+	        <li><button data-toggle="modal" ng-click="applyLeave()" >Apply WFH</button></li>
+        </ul>
+	</div>
+	<div class="panel-body calendercontainer">
+		<div>
+			<div ng-include="'html/leaveTemplate.html'"></div>
+		</div>
+	</div>
+</div>

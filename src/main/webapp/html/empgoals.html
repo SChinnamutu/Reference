@@ -1,0 +1,232 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="goalsForm" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Save Goals</h4>
+					<h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Goals</h4>
+				</div>
+			    <div class="modal-body">
+			    	<div class='panel panel-default'>
+						<table class="table table-bordered">
+			    			<thead>
+						      <tr>
+						        <th class="col-md-7" >Description</th>
+						        <th>Weight</th>
+						        <th>Evaluation</th>
+						        <th >Points</th>
+						        <th >Self Evaluation</th>
+						       </tr>
+						    </thead>
+			    			<tbody>
+			    			<tr>
+				    			<td colspan="4" >Project Goal <i>[2-4 Project Goals Per Project]</i></td>
+				    			<td></td>
+			    			</tr>
+						    <tr>
+						    	<td></td>
+						    	<td>40%</td>
+						    	<td><input  class="form-control" id="ex1" type="text"></td>
+						    	<td><input  class="form-control" id="ex1" type="text"></td>
+						    	<td><input  class="form-control" id="ex1" type="text"></td>
+						     </tr>
+							    
+							    
+							 <tr>
+								<td colspan="4" ><textarea  placeholder="Counselor Comments:" class="form-control" id="ex1" ></textarea>
+                                <td></td>
+							</tr>
+
+			    			
+			    			
+				    			 <tr>
+				    				<td colspan="6">
+					 					<div  class='panel-body'>
+					 						<div><a class="btn btn-primary" ng-click="addProject()"><i class="fa fa-plus"></i>Add new Goal</a></div>
+						 						<div ng-repeat="goal in projectGoals track by $index">
+			    									<div class = 'form-horizontal well'>
+			  											<fieldset>
+			  											
+			  											<table class="table table-bordered">
+			  											<thead>
+			  											<tr>
+				  											<th>Project</th>
+				  											<th>Self</th>
+				  											<th>PM</th>
+				  											<th>Action</th>
+			  											</tr>
+			  											</thead>
+			  											
+			  											<tbody>
+			  											<tr>
+				  											<td><input class="form-control" type="text" ng-model="name"/></td>
+				  											<td><select class="form-control"><option>1</option></select></td>
+				  											<td><select class="form-control"><option>1</option></select></td>
+				  											<td><span ng-hide="elemnt.length == 1">
+												             <a class="btn btn-default" href ng-click="projectGoals.splice($index, 1)">Delete</a>
+												            </span></td>
+			  											</tr>
+			  											</tbody>
+			  											</table>
+			  											<!-- 	<div class="row">
+				   			 									<legend>	
+												    				<label class="col-sm-2">Project</label>
+													    			<div class="col-sm-2">
+													    		    	<input class="form-control" type="text" ng-model="name"/>
+													    		    </div>
+													    		    <span ng-hide="elemnt.length == 1">
+											                            <a style="cursor:pointer" href ng-click="projectGoals.splice($index, 1)">Delete</a>
+											                        </span>
+					    										</legend>
+				    										</div>
+			    											<div class="control-group">
+											    			    <div class="row">
+												    				<div class="col-sm-6">
+												    					<textarea ng-model="goalDesc" placeholder="Enter goal here" class="form-control" rows="4" id="comment"></textarea>
+												        		    </div>
+													    		    <div class="col-sm-3">
+													    		    	<label><i>Self</i></label>
+													    		    	<div class="btn-group" data-toggle="buttons">
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option1">1
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option2">2
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">3
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">4
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">5
+																		  </label>
+																		</div>    	
+													    		    </div>
+													    		    <div class="col-sm-3">
+													    		    	<label><i>PM</i></label>
+													    		    	<div class="btn-group" data-toggle="buttons">
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option1">1
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option2">2
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">3
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">4
+																		  </label>
+																		  <label class="btn btn-primary">
+																		    <input type="radio" name="options" id="option3">5
+																		  </label>
+																		</div>
+													    		    </div>
+												    		    </div>
+					    		    							<br/>
+						    								</div>
+						    							</fieldset>
+						    						 -->
+						    						
+						    						</div>
+						    					</div>
+										</div>
+								  	</td>
+								</tr> 
+								
+								<tr>
+									<td colspan="4">Utilization Goal</td>
+									<td></td>
+								</tr>
+						    	<tr>
+							    	<td><i>Evaluation Value will be derived from Project Goal Worksheet . Every individual is expected to have 98 % utilization in assigned project. </i>
+							  		</td>
+							    	<td>20%</td>
+							    	<td><input class="form-control" id="ex1" type="text"></td>
+							    	<td><input class="form-control" id="ex1" type="text"></td>
+							    	<td><input   class="form-control" id="ex1" type="text"></td>
+							    	
+							    </tr>
+							    <tr>
+									<td colspan="4"><textarea placeholder="Counselor Comments: "  class="form-control" id="ex1"></textarea></td>
+									<td></td>
+								</tr>
+						    	
+						    	<tr>
+							    	<td colspan="4">Organization Goal</td>
+							    	<td></td>
+						    	</tr>
+							    <tr>
+							    	<td><textarea placeholder="Add organization goal here" class="form-control" id="comment"></textarea>
+				     				</td>
+							    	<td>20%</td>
+							    	<td><input   class="form-control" id="ex1" type="text"></td>
+							    	<td><input  class="form-control" id="ex1" type="text"></td>
+							    	<td><input  class="form-control" id="ex1" type="text"></td>
+							    	
+							    </tr>	
+						   		<tr>
+							   		<td colspan="4">
+							   		<textarea  class="form-control" id="ex1"  placeholder="Scoring Annotation:[Attach Goal Proof]"></textarea>
+							      	</td>
+							      	<td></td>
+								</tr>
+								
+								<tr>
+									<td colspan="4">Professional Goal</td>
+									<td></td>
+								</tr>
+							    <tr>
+							        <td>	<textarea placeholder="Add professional goal here" class="form-control"  id="comment"></textarea>
+							      	</td>
+							    	<td>40%</td>
+							    	<td><input   class="form-control" id="ex1" type="text"></td>
+							    	<td><input class="form-control" id="ex1" type="text"></td>
+							    	<td><input  class="form-control" id="ex1" type="text"></td>
+							    </tr>	
+							   	<tr>
+							   		<td colspan="4">
+							   		<textarea  class="form-control" id="ex1"  placeholder="Scoring Annotation:[Attach Goal Proof]"></textarea>
+							      	</td>
+							      	<td></td>
+								</tr>
+								
+								<tr>
+									<td colspan="4">General Goal</td>
+									<td></td>
+								</tr>
+							    <tr>
+							    	<td><i>Adhere to all policies and procedures as defined by the Organization, including but not limited to completing work logs by the given deadline each week,  updating your resume every 90 days in resume repository, following Dress Code and  submitting  PMO report, Timesheet,  PTO and WFH notification  in a timely manner to all required recipients. </i>
+								  	</td>
+							    	<td>40%</td>
+							    	<td><input class="form-control" id="ex1" type="text"></td>
+							    	<td><input  class="form-control" id="ex1" type="text"></td>
+							    	<td><input  class="form-control" id="ex1" type="text"></td>
+							    
+							    </tr>	
+							  	<tr>
+							  		<td colspan="4">
+							  		<textarea  class="form-control" id="ex1"  placeholder="Scoring Annotation:[Attach Goal Proof]"></textarea>
+							     	</td>
+							     	<td></td>
+							   </tr>
+						    </tbody>
+					    </table> 
+		   			</div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

@@ -1,0 +1,89 @@
+<div class="perfhr-widget">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Reports - Job Title</h3>
+	</div>
+	<div class="perfhr-widget-content">
+		<div class="row">
+			<div class="form-group col-md-8">
+		   	 	<div class="col-md-8">
+		   	 		<div class="help-block">
+				    </div>
+		   	 	</div>
+	   	 	</div>
+		</div>
+		<div class="row">
+		    <div class="col-md-12">
+		    	<form class="form-vertical " novalidate>
+			      	<div class="perfhr-filter row">
+			      		<div class="col-md-3 col-sm-4">
+			    			<ol id="jobTitleBreadCrumb" class="breadcrumb">
+							  <li index="0">SBU</li>
+							</ol>
+						</div>
+			      		<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+							    <label class="control-label required">From Date:</label>
+							    <p class="input-group">
+						            <input type="text" name="From Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{startsAt}} ng-model="startsAt" is-open="stDate.opened" 
+					          			id="startDt" datepicker-options="dateOptions" validType="date" required ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+						          	<span class="input-group-btn">
+						            	<button type="button" class="btn btn-default" ng-click="reportStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          	</span>
+						        </p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+						    <div class="form-group">
+						    	<label class="control-label required">To Date:</label>
+						    	<p class="input-group date">
+						          	<input type="text" name="To Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{endsAt}} ng-model="endsAt" is-open="endDate.opened" 
+						          		id="endDt" datepicker-options="dateOptions" validType="date" required ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+						          	<span class="input-group-btn">
+						            	<button type="button" class="btn btn-default" ng-click="reportEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          	</span>
+					            </p>
+						    </div>
+					    </div>
+					    <div class="col-md-1 col-sm-12">
+						    <div class="form-group">
+						    	<label class="control-label"></label>
+						    	<div> 
+						    		<button type="submit" class="btn btn-success" action="searchLeave">Search</button>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+	    		</form>
+				<div id="reportJobTitleTable" ng-show="brIndex <= 1" ng-controller="reportJobTitleControllerTable as jobTitleReport">
+					<table datatable="" dt-options="jobTitleReport.dtOptions" dt-columns="jobTitleReport.dtColumns" dt-instance="jobTitleReport.dtInstance" class="table perfhr-table"></table>
+				</div>
+				<div id="reportEmpTable" ng-show="brIndex > 1" ng-controller="employeeTableCtrl as employeeTable">
+				    <table datatable="" dt-options="employeeTable.dtOptions" dt-columns="employeeTable.dtColumns" dt-instance="employeeTable.dtInstance"  width="100%" class="table perfhr-table">
+				    </table>
+				</div>
+		    </div>
+		</div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="employeeForm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Add Employee</h4>
+                <h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Employee</h4>
+            </div>
+            <form role="form" ng-submit="submit()" ng-init="form={}; data={}" class="form-horizontal">
+	            <div class="modal-body">
+	            	<div ng-include src="'html/employee.html'"></div>
+	            </div>
+	            <div class="modal-footer">
+				   <button type="button" id="closeBtn" class="btn btn-close" data-dismiss="modal">Close</button>
+				   <button type="submit" ng-show="!data.pk" class="btn btn-save">Save</button>
+				   <button type="submit" ng-show="data.pk" class="btn btn-update">Update</button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>

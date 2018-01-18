@@ -1,0 +1,154 @@
+.cal-slide-content{
+	padding: 20px;
+    color: #fff;
+    background-color: #555;
+    box-shadow: inset 0 0 15px 0 rgba(0,0,0,.5);
+}
+
+.cal-year-box .row-fluid:hover, .cal-row-fluid:hover {
+    background-color: transparent;
+}
+
+[class*="cal-cell"]:hover{
+	background: none;
+	cursor: pointer;
+}
+
+.cal-slide-content a{
+	color: #fff;
+}
+
+#cal-week-box, .cal-day-tick {
+    position: absolute;
+    cursor: pointer;
+}
+
+.calendertitle{
+    color: #fff;
+    float: left;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 6px 10px 0 0;
+}
+
+.calender-holder{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	padding:0 20px;
+}
+
+.event {
+	width: 100%;
+	height: 18px;
+	cursor: pointer;
+	margin-right: 0px;
+	border: none;
+	color: #fff;
+	font-size: 11px;
+	padding: 0px 7px;
+    text-transform: capitalize;
+    background: #3b91ad;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.events-list {
+	max-height: 60px;
+    right: 0;
+    border-radius: 3px;
+    padding: 0 4px;
+	
+}
+
+.cal-month-box .cal-events-num {
+	display: none;
+}
+
+span[data-cal-date] {
+	margin-top: 2px;
+}
+
+/*calender theme */
+
+.calendertitle{
+    color: #fff;
+    float: left;
+    font-size: 20px;
+    margin: 7px 0 0;
+}
+
+.cal-row-fluid.cal-row-head {
+    background: #ccc none repeat scroll 0 0;
+    display: inline-block;
+    font-weight: normal;
+    margin: 20px 0 -5px;
+    padding: 6px 0;
+}
+
+.cal-row-head [class*="cal-cell"]:first-child, .cal-row-head [class*="cal-cell"]{font-weight:normal}
+
+
+.cal-month-box .cal-day-today span[data-cal-date] {
+    font-size: 13px;
+}
+ 
+.cal-month-box, .cal-year-box, .cal-week-box{
+  background:#fff;
+}
+
+span[data-cal-date]{opacity:1; font-size:13px;}
+
+
+.cal-month-day {
+    height: 80px;
+}
+
+.cal-year-box [class*="span"], .cal-month-box [class*="cal-cell"]{
+  min-height: 80px;
+}
+
+
+.ch-item:hover{
+	.ch-thumb {
+		box-shadow: inset 0 0 0 15px rgba(255,255,255, 0.5), 0 1px 3px rgba(0,0,0,0.2);
+		@include transform(-110deg);
+	}
+	.ch-info p a{
+		opacity: 1;
+		@include trans-rotat (0px , 0deg);
+	}
+}
+
+.cal-day-tick {
+    border: 1px solid #e1e1e1;
+    border-top: 0 solid;
+    border-radius: 0 0 5px 5px;
+    background-color: #ededed;
+    text-align: center;
+    right: 50%;
+    bottom: -21px;
+    padding: 0 5px;
+    z-index: 5;
+    width: 26px;
+    margin-right: -17px;
+    display: none;
+}
+
+.cal-day-tick .fa {
+    display: none;
+}
+
+.cal-before-eventlist{
+	margin:0px;
+}
+
+.cal-row-fluid.cal-row-head {
+	margin: 0px 0 -5px;
+}
+
+.uib-datepicker-popup {
+    width: 298px;
+    padding: 5px;
+}

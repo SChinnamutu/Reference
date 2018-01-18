@@ -1,0 +1,336 @@
+/*CORE THEME COLOR*/
+$FontMain: #444;
+$ThemeColor: #51445f;
+
+
+
+/*Body section*/
+body{
+	background:#e7eaeb;
+}
+
+.feature h4{
+  color:$FontMain;
+}
+
+.feature p, .feature-2 p{
+    color:$FontMain;
+}
+
+
+
+.header{
+      background: $ThemeColor;
+      width:100%;
+}
+     
+/*Dashboard*/
+.ch-thumb {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ch-info {
+   background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+}
+
+/*Menu bar*/
+.mm-menu.mm-theme-dark {
+    background: $ThemeColor;
+    color: #fff;
+}
+
+
+
+/*Calender main*/
+
+.calendertitle{
+  color:$FontMain;
+}
+
+.cal-row-fluid.cal-row-head{
+   background: #16a085;
+}
+
+.leaves .cal-row-fluid.cal-row-head{
+   background: rgba(244, 67, 54, 0.83);
+}
+
+.cal-row-head {
+[class*="cal-cell"]:first-child , [class*="cal-cell"] {
+    font-weight: normal;
+    border-right: 1px solid;
+    color: #fff;
+}
+
+[class*="cal-cell"]:last-child{
+  border:none;
+}
+
+}
+
+/*Panel Section*/
+.panel-success.perfhr-panel > .panel-heading {
+    color: #000;
+    border-bottom:1px solid #ccc;
+    background-color: #f5f5f5;
+}
+
+
+.panel.perfhr-panel{
+   .controls{
+	   > li{
+		    border-left: 1px solid rgba(0, 0, 0, 0.1);
+		    > button , > a {
+			    border-left: 1px solid rgba(204, 204, 204, 0.42);
+			    color: rgba(248, 244, 241, 0.81);
+	  		}
+	  	}
+	}
+	background-color: #fff;
+    border-color: #ccc;
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td,
+	.table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+	  
+	     border-color: #ccc;
+	 }
+}
+
+.perfhr-widget-header{
+    background-color: #eeeeee;
+    border-bottom: 1px solid #ccc;
+    height:50px;
+    > h3{
+	    color: $FontMain;
+      margin: 16px 0 20px 20px;
+   }
+}
+
+.perfhr-widget{
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      padding-bottom:0;
+      border-radius:4px;
+      background:#fff;
+}
+
+.perfhr-widget-content{
+
+    .form-control{
+        border: 1px solid #ccc;
+        background-color: inherit;
+        color: $FontMain;
+    }
+    
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	    background-color: rgba(238, 238, 238, 0.22);
+    }
+    
+    .control-label{
+        color:$FontMain;
+    }
+}
+
+.perfhr-widget-footer {
+    background: #eeeeee;
+}
+
+/*Datatables*/
+table.dataTable tbody tr.selected {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+table.dataTable, table.dataTable.no-footer{    
+	border: 1px solid rgba(221, 221, 221, 0.28);
+}
+
+div.dataTables_length label, div.dataTables_filter label{    
+  color: $FontMain;
+}
+
+.dataTables_length select {
+    border: 1px solid #ccc;
+    background: none;
+    color: $FontMain;
+}
+
+.dataTables_filter input[type="search"]{
+  border: 1px solid #ccc;
+    background: none;
+    color: $FontMain;
+}
+
+.rightsided-element{
+    button{
+	    background-color: #337ab7;
+    border-color: #2e6da4;
+    color:#fff;
+  	}
+}
+
+/*-----------------TABLE COMPONENT---------------------*/
+.perfhr-table{
+	&.table{
+  		border:none;
+		thead {
+	    	.sorting_asc,  .sorting_desc, .sorting, .sorting_disabled{
+	       		box-shadow:none;
+    			background-color: $ThemeColor ;
+    			color:#fff;
+    			font-weight:normal;
+    		}
+		}
+		tbody{
+	   		tr{
+	   			background:none;
+	   		}
+		}
+ 	}
+}
+
+.perfhr-widget .perfhr-table{
+	&.table{
+		thead {
+	    	th{
+	       		color: #fff;
+    		}
+		}
+		tbody {
+	    	tr{
+	       		color: #000;
+    		}
+		}
+ 	}
+}
+
+.modal table.dataTable tbody td {
+	color: #000;
+}
+
+
+/*-----------------PAGNATION COMPONENT---------------------*/
+.pagination {
+	> .disabled, > li{
+		a, a:focus, a:hover, span, span:focus, span:hover {
+			color: $FontMain;
+    		background-color: inherit;
+    		border-color: rgba(221, 221, 221, 0.87);
+		}
+		a:hover, a:focus {
+		    color: #fff;
+		    background-color: rgba(0, 0, 0, 0.24);
+		    border-color: rgba(255, 255, 255, 0.84);
+		}
+	}
+	.active {
+		a, a:focus, a:hover, span, span:focus, span:hover {
+		    color: #fff;
+		    background-color: #C53A26;
+		    border-color: rgba(255, 255, 255, 0.84);
+		}
+	}
+}
+
+
+/*-----------------------------MODAL-----------------------------*/
+
+.modal{   
+   background: rgba(0, 0, 0, 0.76);
+   .form-horizontal .control-label{
+   		color:$FontMain;
+   }
+   .form-control{
+   		color:#000;
+   }
+   table.dataTable {
+        thead {
+        	.sorting, .sorting_asc, th {
+        		background-color: #51445f;
+        	}
+        }
+        tbody {
+        	td {
+        		border-left: 1px solid rgba(189, 187, 187, 0.43);
+        		border-bottom: 1px solid rgba(189, 187, 187, 0.43);
+        	}
+        }
+   }
+}
+.modal-backdrop.fade.in{display:none}
+
+.modal-content {
+    background: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ccc;
+    background: #f5f5f5;
+    color: $FontMain;
+}
+
+.modal-footer {
+    background: #fff;
+        border-top: 1px solid #ccc;
+}
+
+.modal select option {
+    color:#000;
+}
+
+.modal-header .close {
+    color: $FontMain;
+}
+
+
+/*---------calender-------------------*/
+
+.calender-top .btn-primary{
+  background:#3A8CA6;
+}
+
+/*----------PANEL-----------*/
+
+button.dt-button, div.dt-button, a.dt-button{
+  color:$FontMain;
+  border-color:#ccc;
+
+  &:hover{
+  color:#fff;
+  }
+}
+
+.dataTables_wrapper .dataTables_info{
+   color:$FontMain;
+}
+
+.perfhr-filter > .col-sm-3 > .form-group{width:100%}
+
+option {
+    background: #fff;
+}
+
+/*--------------------BTN-----------------*/
+.btn-close:hover, .btn-close:active, .btn-close:focus, .btn-close {
+    background: #CCD1DA;
+    border-color: #AAB2BE;
+}
+
+/*------------------------*/
+
+.fixedsubmenu .submenu.fixed{
+  overflow:visible;
+}
+
+/*mmenu*/
+.mm-menu.mm-theme-dark .mm-listview > li.mm-selected > a:not(.mm-next), 
+.mm-menu.mm-theme-dark .mm-listview > li.mm-selected > span {
+	background: #828188;
+}
+
+.mm-menu.mm-hoverselected.mm-theme-dark .mm-listview > li > a.mm-fullsubopen:hover + span, 
+.mm-menu.mm-hoverselected.mm-theme-dark .mm-listview > li > a:not(.mm-fullsubopen):hover, 
+.mm-menu.mm-parentselected.mm-theme-dark .mm-listview > li > a.mm-selected.mm-fullsubopen + a, 
+.mm-menu.mm-parentselected.mm-theme-dark .mm-listview > li > a.mm-selected.mm-fullsubopen + span, 
+.mm-menu.mm-parentselected.mm-theme-dark .mm-listview > li > a.mm-selected:not(.mm-fullsubopen){
+	background: #676571;
+}

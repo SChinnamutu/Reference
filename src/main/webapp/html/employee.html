@@ -1,0 +1,224 @@
+<div class = "alert alert-info" ng-show="$parent.data.msg">
+  {{$parent.data.msg}}
+</div>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+	   <div class="form-group">
+	  	    <div class="col-md-1"></div>
+		 	<div class="col-md-8">
+		 		<div class="help-block"></div>
+		 	</div>
+		 	<div class="col-md-1"></div>
+	   </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Employee Id:</label>
+         <div class="col-md-8">
+            <input type="text" name="Employee Id" id="employee_id" ng-model="$parent.data.employeeId" class="form-control" placeholder="Employee Id" 
+            	value="{{$parent.data.employeeId}}" validtype="all-chars" ng-disabled="$parent.data.pk" required ng-minlength="3" ng-maxlength="45">
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Email Id:</label>
+         <div class="col-md-8">
+            <input type="email" name="Email Id" ng-model="$parent.data.email" class="form-control" required validType="email" ng-minlength="3"
+               ng-disabled="isProfile" ng-maxlength="45" placeholder="Email" value="{{$parent.data.email}}">
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">First Name:</label>
+         <div class="col-md-8">
+            <input type="text" name="First Name" ng-model="$parent.data.firstName" class="form-control capitalize" required placeholder="First Name" validType="text-only" ng-minlength="3"
+                ng-maxlength="45" value="{{$parent.data.firstName}}">
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Last Name:</label>
+         <div class="col-md-8">
+            <input type="text" name="Last Name" ng-model="$parent.data.lastName" class="form-control capitalize" required placeholder="Last Name" validType="text-only" ng-minlength="3"
+                ng-maxlength="45" value="{{$parent.data.lastName}}">
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Job Title:</label>
+         <div class="col-md-8">
+            <!-- <select class="form-control" name="Job Title" required validType="select" ng-model="$parent.data.designations"
+            	ng-selected="{{$parent.data.designations}}" ng-options="designation.designation for designation in designations | orderBy: 'designation' track by designation.pk">
+			</select> -->
+			<ol class="form-control nya-bs-select" name="Job Title" title="Select" data-live-search="true" required validType="select" 
+				disabled="isProfile" ng-model="$parent.data.designations" ng-selected="{{$parent.data.designations}}">
+			  <li nya-bs-option="designation in designations | orderBy: 'designation' track by designation.pk">
+			    <a>
+			      {{designation.designation}}
+			      <span class="glyphicon glyphicon-ok check-mark"></span>
+			    </a>
+			  </li>
+			</ol>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">SBU:</label>
+         <div class="col-md-8">
+         	<input type="text" name="SBU" class="form-control" required validType="text-only" disabled value="data.designations.sbu" ng-model="data.designations.sbu">
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Address</label>
+         <div class="col-md-8">
+         	<textarea rows="3" name="Address" cols="36" class="form-control" ng-model="$parent.data.address" required ng-minlength="3"
+                validtype="all-chars" ng-maxlength="500" value={{$parent.data.address}}></textarea>
+         </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+      	<label for="inputEmail" class="col-md-4 control-label required">Pincode</label>
+         <div class="col-md-8">
+            <input type="text" name="Pincode" ng-model="$parent.data.pincode" class="form-control" validType="number-only" required ng-minlength="6"
+                ng-maxlength="6" placeholder="PinCode" value="{{$parent.data.pincode}}">
+         </div>
+      </div>
+      <div class="form-group">
+      	<label class="col-md-4 control-label required">Contact No:</label>
+         <div class="col-md-8">
+            <input type="text" name="Contact No" ng-model="$parent.data.contactNo" class="form-control" required ng-minlength="8"
+                ng-maxlength="150" placeholder="Contact No" validtype="all-chars" value="{{$parent.data.contactNo}}">
+         </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+      <div class="form-group date">
+         <label class="col-md-4 control-label required">D.O.B:</label>
+         <div class="col-md-8">
+            <p class="input-group">
+		        <input type="text" name="D.O.B" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{$parent.data.dob}} ng-model="$parent.data.dob" is-open="dob.opened" 
+		         	id="birthDate" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+		        <span class="input-group-btn">
+		           <button type="button" class="btn btn-default" ng-click="dobDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+		        </span>
+	        </p>
+    	 </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+      	 <label class="col-md-4 control-label required">Gender:</label>
+         <div class="col-md-8">
+             <ol class="nya-bs-select form-control"  name="Gender" title="Select" required validType="select" 
+	        	ng-model="data.gender" ng-selected="{{data.gender}}">
+				  <li class="nya-bs-option" data-value="Male">
+				    <a>Male</a>
+				  </li>
+				  <li class="nya-bs-option" data-value="Female">
+				    <a>Female</a>
+				  </li>
+			  </ol>
+	   	 </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label for="inputEmail" class="col-md-4 control-label required">Blood Group</label>
+         <div class="col-md-8">
+            <input type="text" name="Blood Group" ng-model="$parent.data.bloodGroup" required ng-minlength="3" ng-maxlength="10" class="form-control" 
+            validtype="all-chars" placeholder="Blood Group" value="{{$parent.data.bloodGroup}}">
+         </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label for="inputEmail" class="col-md-4 control-label required">Pancard No</label>
+         <div class="col-md-8">
+            <input type="text" name="Pancard No" ng-model="$parent.data.panCard" class="form-control" required 
+            	validType="alpha-numeric" ng-minlength="10" ng-maxlength="10" placeholder="Pancard No" value="{{$parent.data.panCard}}">
+         </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+      <div class="form-group date">
+         <label class="col-md-4 control-label required">Date of Join</label>
+         <div class="col-md-8">
+          <p class="input-group">
+	         <input type="text" name="Date of Join" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{$parent.data.joinDate}} ng-model="$parent.data.joinDate" is-open="joinDate.opened" 
+	         	ng-disabled="isProfile" id="joinDate" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+	         <span class="input-group-btn">
+	           <button type="button" class="btn btn-default" ng-click="joinDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+	         </span>
+	       </p>
+   		 </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label required">Supervisor:</label>
+         <div class="col-md-8">
+			<ol class="form-control nya-bs-select" name="Supervisor" title="Select" data-live-search="true" required validType="select" 
+				disabled="isProfile" ng-model="$parent.data.supervisor" ng-selected="{{data.employeeId}}">
+			  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+			    <a>
+			      {{employee.firstName + " " + employee.lastName}}
+			      <span class="glyphicon glyphicon-ok check-mark"></span>
+			    </a>
+			  </li>
+			</ol>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+      <div class="form-group date">
+         <label class="col-md-4 control-label">Job Title Effective Date:</label>
+         <div class="col-md-8">
+          <p class="input-group">
+	         <input type="text" name="Job Title Effective Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{$parent.data.jobEffDate}} ng-model="$parent.data.jobEffDate" is-open="jobEffDate.opened" 
+	         	ng-disabled="isProfile" id="jobEffDate" datepicker-options="dateOptions" ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+	         <span class="input-group-btn">
+	           <button type="button" class="btn btn-default" ng-click="joinDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+	         </span>
+	       </p>
+   		 </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-lg-6">
+      <div class="form-group">
+         <label class="col-md-4 control-label">Last Working Date:</label>
+         <div class="col-md-8">
+             <p class="input-group">
+	         	<input type="text" name="Last Working Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{$parent.data.lastWorkDate}} ng-model="$parent.data.lastWorkDate" is-open="lastWorkDate.opened" 
+	         		ng-disabled="isProfile" datepicker-options="dateOptions" ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+	         	<span class="input-group-btn">
+	           		<button type="button" class="btn btn-default" ng-click="lastWorkDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+	         	</span>
+	       	 </p>
+	   	 </div>
+      </div>
+   </div>
+</div>

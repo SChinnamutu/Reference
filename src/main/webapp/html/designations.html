@@ -1,0 +1,53 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="designationForm" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Save Job Title</h4>
+					<h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Job Title</h4>
+				</div>
+			    <div class="modal-body">
+			    	<div class="row">
+					      <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Job Title :</label>
+					             <div class="col-md-8">
+					               <input type="text" name="JobTitle" class="form-control capitalize" required validType="text-only" ng-minlength="3"
+		                				ng-maxlength="45" ng-model="data.designation"/>
+					             </div>
+			   		         </div>
+			   		         <div class="form-group">
+						         <label class="col-md-4 control-label required">SBU :</label>
+					             <div class="col-md-8">
+					                <!-- <select class="form-control" name="SBU" ng-model="data.sbu" required validType="select" ng-selected="{{data.sbu}}">
+					               		<option>CHENNAI ADMIN</option>
+					               		<option>CHENNAI CONSULTING</option>
+									</select> -->
+									<ol class="nya-bs-select form-control" name="SBU" title="Select" required validType="select" 
+							        	actions-box="true" ng-model="data.sbu" ng-selected="{{data.sbu}}">
+									  <li class="nya-bs-option" data-value="CHENNAI ADMIN">
+									    <a>CHENNAI ADMIN</a>
+									  </li>
+									  <li class="nya-bs-option" data-value="CHENNAI CONSULTING">
+									    <a>CHENNAI CONSULTING</a>
+									  </li>
+									</ol>
+					             </div>
+			   		         </div>
+		   		         </div>
+	   		         </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

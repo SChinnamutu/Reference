@@ -1,0 +1,14 @@
+<div class="events-list" ng-show="day.events.length > 0">
+  <div
+    ng-repeat="event in day.events | orderBy:'title' | limitTo:3 track by event.$id"
+    href="javascript:;"
+    ng-click=""
+    ng-init="more='+'"
+    class="pull-left event"
+    ng-class="'event-' + event.type + ' ' + event.cssClass"
+    ng-mouseenter="vm.highlightEvent(event, false)"
+    ng-mouseleave="vm.highlightEvent(event, false)"
+    mwl-draggable="event.draggable === true"
+    drop-data="{event: event, draggedFromDate: day.date.toDate()}"><div>{{($index == '2')?more+(day.events.length-2+' more...'):event.title}}</div>
+  </div>
+</div>

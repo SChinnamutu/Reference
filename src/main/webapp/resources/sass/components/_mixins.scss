@@ -1,0 +1,55 @@
+@mixin transition ($property, $duration, $timing-function, $delay) {
+	transition-property: $property;
+	-webkit-transition-property: $property;
+	-ms-transition-property: $property;
+	transition-duration: $duration;
+	-webkit-transition-duration: $duration;
+	-ms-transition-duration: $duration;
+	transition-timing-function: $timing-function;
+	-webkit-transition-timing-function: $timing-function;
+	-ms-transition-timing-function: $timing-function;
+	transition-timing-function: $delay;
+	-webkit-transition-delay: $delay;
+	-ms-transition-delay: $delay;
+}
+@mixin transform ($deg) {
+	transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+}
+@mixin trans-rotat ($r1, $r2) {
+	-webkit-transform: translateX($r1) rotate($r2);
+	-moz-transform: translateX($r1) rotate($r2);
+	-o-transform: translateX($r1) rotate($r2);
+	-ms-transform: translateX($r1) rotate($r2);
+	transform: translateX($r1) rotate($r2);
+}
+@mixin border-radius ($value) {
+	border-radius: $value;
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	-ms-border-radius: $value;
+	-o-border-radius: $value;
+}
+@mixin transform3d($v1, $v2, $v3) {
+	-webkit-transform: translate3d($v1, $v2, $v3);
+	-moz-transform: translate3d($v1, $v2, $v3);
+	-o-transform: translate3d($v1, $v2, $v3);
+	transform: translate3d($v1, $v2, $v3);
+}
+@mixin transform-origin($v1, $v2) {
+	-webkit-transform-origin: $v1 $v2;
+	-moz-transform-origin: $v1 $v2;
+	-o-transform-origin: $v1 $v2;
+	-ms-transform-origin: $v1 $v2;
+	transform-origin: $v1 $v2;
+}
+@mixin box-shadow ($value) {
+	box-shadow: $value;
+	-webkit-box-shadow: $value;
+	-moz-box-shadow: $value;
+	-ms-box-shadow: $value;
+	-o-box-shadow: $value;
+}

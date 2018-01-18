@@ -1,0 +1,185 @@
+/*Body section*/
+body{
+	background-image:url('../images/bg_theme1.jpg');
+	background-size:cover;
+}
+    
+/*Dashboard*/
+.ch-thumb {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ch-info {
+   background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+}
+
+/*Menu bar*/
+.mm-menu.mm-theme-dark {
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+    color: #fff;
+}
+
+/*Panel Section*/
+.panel-success.perfhr-panel > .panel-heading {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.panel.perfhr-panel{
+   .controls{
+	   > li{
+		    border-left: 1px solid rgba(0, 0, 0, 0.1);
+		    > button , > a {
+			    border-left: 1px solid rgba(204, 204, 204, 0.42);
+			    color: rgba(248, 244, 241, 0.81);
+	  		}
+	  	}
+	}
+	background-color: rgba(0, 0, 0, 0.37);
+	border-color: rgba(255, 255, 255, 0.3);
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td,
+	.table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+	     color:#fff;
+	     border-color: rgba(221, 221, 221, 0.18);
+	 }
+}
+
+.perfhr-widget-header{
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    > h3{
+	    color: #fff;
+   }
+}
+
+.perfhr-widget-content{
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    .form-control{
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background-color: rgba(0, 0, 0, 0.35);
+        color: rgba(255, 255, 255, 0.68);
+    }
+    
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	    background-color: rgba(238, 238, 238, 0.22);
+    }
+    
+    .control-label{
+        color:#fff;
+    }
+}
+
+.perfhr-widget-footer {
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+}
+
+/*Datatables*/
+table.dataTable tbody tr.selected {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+table.dataTable, table.dataTable.no-footer{    
+	border: 1px solid rgba(221, 221, 221, 0.28);
+}
+
+div.dataTables_length label, div.dataTables_filter label{    
+	color: rgba(255, 255, 255, 0.48);
+}
+
+.dataTables_length select {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.37);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dataTables_filter input[type="search"]{
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.37);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.rightsided-element{
+    button{
+	    background: #56ba83 none repeat scroll 0 0;
+  	}
+}
+
+/*-----------------TABLE COMPONENT---------------------*/
+.perfhr-table{
+	&.table{
+  		border:none;
+		thead {
+	    	.sorting_asc,  .sorting_desc, .sorting, .sorting_disabled{
+	       		box-shadow: 0 0px 0px 1px #0196E7;
+    			background-color: rgba(61, 138, 247, 0.24);
+    		}
+		}
+		tbody{
+	   		tr{
+	   			background:none;
+	   		}
+		}
+ 	}
+}
+
+/*-----------------PAGNATION COMPONENT---------------------*/
+.pagination {
+	> .disabled, > li{
+		a, a:focus, a:hover, span, span:focus, span:hover {
+			color: rgba(255, 255, 255, 0.96);
+    		background-color: inherit;
+    		border-color: rgba(221, 221, 221, 0.87);
+		}
+		a:hover, a:focus {
+		    color: #fff;
+		    background-color: rgba(0, 0, 0, 0.24);
+		    border-color: rgba(255, 255, 255, 0.84);
+		}
+	}
+	.active {
+		a, a:focus, a:hover, span, span:focus, span:hover {
+		    color: #fff;
+		    background-color: rgba(0, 0, 0, 0.24);
+		    border-color: rgba(255, 255, 255, 0.84);
+		}
+	}
+}
+
+
+/*-----------------------------MODAL-----------------------------*/
+
+.modal{   
+   background: rgba(0, 0, 0, 0.47);
+   .form-horizontal .control-label{
+   		color:#fff;
+   }
+   .form-control{
+   		color:#fff;
+   }
+}
+
+.modal-content {
+    background: #2C475E;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(15, 51, 32, 0.38);
+    background: #55C188;
+    color: #fff;
+}
+
+.modal-footer {
+    background: rgba(0, 0, 0, 0.14);
+}
+
+.modal select option {
+    background: #2C475E none repeat scroll 0 0;
+    color:#fff;
+}
+
+.modal-header .close {
+    color: #fff;
+}

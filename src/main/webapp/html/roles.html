@@ -1,0 +1,35 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="rolesForm" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Save Role</h4>
+					<h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Role</h4>
+				</div>
+			    <div class="modal-body">
+			    	<div class="row">
+					      <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Role :</label>
+					             <div class="col-md-8">
+					               <input type="text" name="Role" class="form-control capitalize" required validType="text-only" ng-minlength="3"
+		                				ng-maxlength="45" ng-model="data.roleName"/>
+					             </div>
+			   		         </div>
+		   		         </div>
+	   		         </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

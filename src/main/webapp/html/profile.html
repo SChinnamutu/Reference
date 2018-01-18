@@ -1,0 +1,24 @@
+<div class="perfhr-widget">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Profile</h3>
+	</div>
+	<form role="form" ng-init="form={}; data={}" class="form-horizontal" novalidate>
+		<div class="perfhr-widget-content">
+			<!-- left column -->
+		    <!-- <div class="col-md-3">
+		      <div class="text-center">
+		        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+		        <h6>Upload a different photo...</h6>
+		        <input type="file" class="form-control">
+		      </div>
+		    </div> -->
+		    <!-- edit form column -->
+		    <div class="col-md-12">
+		      	<div onload="finishLoading()" data-ng-include src="'html/employee.html'"></div>
+		    </div>
+	    </div>
+	    <div class="perfhr-widget-footer">
+		    <button type="submit" ng-show="data.pk" class="btn btn-update" action="submit">Update</button>
+	    </div>
+    </form>
+</div>

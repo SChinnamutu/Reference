@@ -1,0 +1,36 @@
+<div class="panel panel-success  perfhr-panel">
+	<div class="panel-heading">
+		<h1 class="section-title">Employees</h1>
+		<ul class="rightsided-element">
+        	<li>
+        		<button data-toggle="modal" ng-click="addEmployee()" ><i class="fa fa-plus"></i>Add</button>
+        	</li>
+        </ul>
+	</div>
+	<div>
+	    <p class="text-danger"><strong>{{msg}}</strong></p>
+	    <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstance"  width="100%" class="table perfhr-table">
+	    </table>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-lg" id="employeeForm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Add Employee</h4>
+                <h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Employee</h4>
+            </div>
+            <form role="form" ng-init="form={}; data={}" class="form-horizontal" novalidate>
+	            <div class="modal-body">
+	            	<div ng-include src="'html/employee.html'"></div>
+	            </div>
+	            <div class="modal-footer">
+				   <button type="button" id="closeBtn" class="btn btn-close" data-dismiss="modal">Close</button>
+				   <button type="submit" ng-show="!data.pk" class="btn btn-save" action="save">Save</button>
+				   <button type="submit" ng-show="data.pk" class="btn btn-update" action="update">Update</button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>

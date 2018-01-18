@@ -1,0 +1,57 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="projectForm" role="dialog" data-backdrop="static">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk">Save Project</h4>
+					<h4 class="modal-title" ng-show="data.pk">Update Project</h4>
+				</div>
+			    <div class="modal-body">
+				    <div class="row">
+					    <div class="col-md-12">
+							<div class="col-md-11">
+						         <div class="form-group">
+							         <label class="col-md-4  control-label required">Project Name:</label>
+						             <div class="input-group col-md-8 col-sm-12 col-xs-12 splinnputs">
+						               <input type="text" class="form-control capitalize" name="Project Name" required ng-minlength="3" validtype="all-chars"
+						               		ng-maxlength="45" ng-model="data.projectName" value="{{data.projectName}}"/>
+						             </div>
+						         </div>
+						         <div class="form-group">
+									<label class="col-md-4 control-label required" for="startDate">Project Start Date :</label>
+					                <p class="input-group col-md-8">
+							          <input type="text" class="form-control" name="Project Start Date" uib-datepicker-popup="dd-MMM-yyyy" value={{data.startDate}} ng-model="data.startDate" is-open="stDate.opened" 
+							          		id="startDt" datepicker-options="dateOptions" validType="date" required ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+							          <span class="input-group-btn">
+							            <button type="button" class="btn btn-default" ng-click="prStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+							          </span>
+							        </p>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label required" for="startDate">Project End Date :</label>
+									<p class="input-group col-md-8">
+							          <input type="text" class="form-control" name="Project End Date" uib-datepicker-popup="dd-MMM-yyyy" value={{data.endDate}} ng-model="data.endDate" is-open="endDate.opened" 
+							          		id="endDt" datepicker-options="dateOptions" validType="date" required ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+							          <span class="input-group-btn">
+							            <button type="button" class="btn btn-default" ng-click="prEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+							          </span>
+							        </p>
+								</div>
+							</div>
+						</div>
+				    </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

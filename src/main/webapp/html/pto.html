@@ -1,0 +1,13 @@
+<div class="panel panel-success perfhr-panel" ng-controller="ptoController as scope">
+	<div class="panel-heading">
+		<h1 class="section-title"><span class="mobilhide">PTO Calendar:</span> Leave's Taken: {{leaveBalance}} Carried On:{{carriedOn}}</h1>
+        <ul class="rightsided-element">
+	        <li><button data-toggle="modal" ng-click="applyLeave()" >Apply PTO</button></li>
+        </ul>
+	</div>  
+	<div class="panel-body calendercontainer">
+		<div class="leaves">
+			<div ng-include src="'html/leaveTemplate.html'"></div>
+		</div>
+	</div>  
+</div>

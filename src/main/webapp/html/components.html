@@ -1,0 +1,73 @@
+<div ng-include src="'html/templates/panelTemplate.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="componentsForm" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Save Component</h4>
+					<h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Component</h4>
+				</div>
+			    <div class="modal-body">
+			    	<div class="row">
+					      <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Component :</label>
+					             <div class="col-md-8">
+					               <input type="text" name="Component" class="form-control capitalize" required validType="text-only" ng-minlength="3"
+		                				ng-maxlength="45" ng-model="data.componentName"/>
+					             </div>
+			   		         </div>
+		   		         </div>
+		   		         <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Type :</label>
+					             <div class="col-md-8">
+							         <ol class="nya-bs-select form-control"  name="Leave Type" title="Select" required validType="select" 
+							        	actions-box="true" ng-model="data.requestType" ng-selected="{{data.requestType}}">
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Page</a>
+										  </li>
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Menu</a>
+										  </li>
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Button</a>
+										  </li>
+									  </ol>
+					             </div>
+			   		         </div>
+		   		         </div>
+		   		         <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Under :</label>
+					             <div class="col-md-8">
+							         <ol class="nya-bs-select form-control"  name="Leave Type" title="Select" required validType="select" 
+							        	actions-box="true" ng-model="data.requestType" ng-selected="{{data.requestType}}">
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Menu</a>
+										  </li>
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Employees</a>
+										  </li>
+										  <li class="nya-bs-option" data-value="Page">
+										    <a>Profile</a>
+										  </li>
+									  </ol>
+					             </div>
+			   		         </div>
+		   		         </div>
+	   		         </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-save" ng-show="!data.pk" action="save">Save</button>
+					<button type="submit" class="btn btn-update" ng-show="data.pk" action="update">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div ng-include src="'html/templates/deleteTemplate.html'"></div>

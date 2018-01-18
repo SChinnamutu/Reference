@@ -1,0 +1,69 @@
+table.dataTable thead {
+   .sorting_asc, .sorting_desc, .sorting, .sorting_disabled{
+	  font-size: $th-font-size;
+      color:#fff;
+      font-weight:normal;
+   }
+   th{
+ 	  text-align: center;
+ 	  padding: $th_td_padding;
+   }
+}
+
+table.dataTable tbody {
+   td {
+ 	  text-align: left;
+ 	  padding: $th_td_padding;
+   }
+   td:last-child {
+   	  text-align: center;
+   }
+}
+
+
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-top: 0;
+    margin: 0 0px 8px 0;
+}
+
+.dataTables_length select {
+    font-weight: normal;
+}
+
+.dataTables_filter input[type="search"]{
+    font-weight: normal;
+}
+
+.dataTables_wrapper {    
+	padding: 1rem 14px;
+}
+
+.dataTables_length {    
+	margin: 0.2rem 0 0.8rem 0rem;
+}
+
+.dataTables_filter {    
+	margin-right: 0;
+}
+.dataTables_wrapper .dataTables_info {
+    display: block;
+    color: #fff;
+    padding: 0;
+    margin: -9px 0 4px 2px;
+}
+
+/*-----------------PAGNATION COMPONENT---------------------*/
+.pagination {
+	> .disabled, > li{
+		a:hover, a:focus {
+			z-index: 3;
+		}
+	}
+	.active {
+		a, a:focus, a:hover, span, span:focus, span:hover {
+			z-index: 3;
+		}
+	}
+}
